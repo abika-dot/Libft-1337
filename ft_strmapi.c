@@ -6,10 +6,11 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 18:22:31 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/11 21:49:26 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/16 18:45:49 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
@@ -17,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	if (!s)
-		return NULL;
+		return (NULL);
 	mapi = ft_strdup(s);
 	if (!mapi)
 		return (NULL);

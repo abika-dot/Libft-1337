@@ -6,13 +6,14 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 17:14:17 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/10 14:52:04 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/16 19:12:23 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
+	size_t	i;
 	char	*ddst;
 	char	*ssrc;
 

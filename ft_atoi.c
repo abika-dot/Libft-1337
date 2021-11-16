@@ -6,10 +6,11 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:09:44 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/15 20:35:41 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/16 18:23:57 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+
 static	int	my_isspace(int c)
 {
 	if (c == ' '
@@ -24,9 +25,9 @@ static	int	my_isspace(int c)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	long 	long	j;
-	long	long	count;
+	int		i;
+	long	j;
+	long	count;
 
 	i = 0;
 	j = 1;
@@ -38,14 +39,14 @@ int	ft_atoi(const char *str)
 		j *= -1;
 		i++;
 	}
-	else if(str[i] == '+')
+	else if (str[i] == '+')
 		i++;
 	else if (str[i] <= '0' && str[i] >= '9')
-		return 0; 
+		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		count = (str[i] - 48 ) + (count * 10);
+		count = (str[i] - 48) + (count * 10);
 		i++;
 	}
-	return (long long)(count * j);
+	return (count * j);
 }
