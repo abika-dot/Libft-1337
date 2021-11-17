@@ -6,38 +6,39 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:39:12 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/12 00:36:02 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/17 05:08:01 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-static char *zerorule()
+
+static	char	*zerorule(char *s)
 {
-	int i;
-	char *s;
-	
-	s = malloc(2 * sizeof(char));	
+	int	i;
+
+	s = malloc(2 * sizeof(char));
 	if (!s)
 	{
-		return NULL;
+		return (NULL);
 	}
 	if (!s)
 	{
-		return NULL;
+		return (NULL);
 	}	
 	i = 0;
 	s[i] = '0';
-	s[i+1] = 0;
+	s[i + 1] = 0;
 	return (s);
 }
-static char	*nbr(char *s, long nbr, int i, int sign)
+
+static char	*nbr(char *s, long nbr, int i)
 {
-	int	a;
-	int	b;
+	int		a;
+	int		b;
 	long	c;
 
 	a = i + 1;
 	c = nbr;
-	if (sign == -1)
+	if (c < 0)
 	{
 		s[0] = '-';
 		c *= -1;
@@ -58,27 +59,24 @@ char	*ft_itoa(int n)
 	char	*at;
 	int		c;
 	int		i;
-	int		sign;
 
-	sign = 1;
+	at = NULL;
 	i = 0;
 	c = n;
 	if (c == 0)
-		return (zerorule());
+		return (zerorule(at));
 	while (c)
 	{
 		c = c / 10;
 		i++;
 	}
-	
 	if (n < 0)
 	{
 		i++;
-		sign *= -1;
 	}
 	at = malloc(i * sizeof(char) + 1);
 	if (!at)
 		return (NULL);
-	at = nbr(at, (long)n, i - 1, sign);
+	at = nbr(at, (long)n, i - 1);
 	return (at);
 }

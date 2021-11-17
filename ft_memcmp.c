@@ -6,10 +6,11 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:24:18 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/10 15:19:31 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/17 05:12:21 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	char	*ss1;

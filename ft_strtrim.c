@@ -6,14 +6,15 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:54:16 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/15 18:35:27 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/17 05:39:49 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+
 static	int	cordi(char const *s1, char const *cord)
 {
 	int	i;
-	int j;
+	int	j;
 
 	j = 0;
 	i = 0;
@@ -22,23 +23,23 @@ static	int	cordi(char const *s1, char const *cord)
 		while (cord[j])
 		{
 			if (s1[i] == cord[j])
-				break;
+				break ;
 			j++;
 		}
 		if (cord[j] == '\0' )
-			break;
+			break ;
 		i++;
 		j = 0;
 	}
 	return (i);
 }
 
-static int rcordi(char const *s1, char const *cord)
+static	int	rcordi(char const *s1, char const *cord)
 {
-	int i;
-	int j;
-	int a;
-	int ch;
+	int	i;
+	int	j;
+	int	a;
+	int	ch;
 
 	j = ft_strlen(cord) - 1 ;
 	i = ft_strlen(s1);
@@ -47,14 +48,14 @@ static int rcordi(char const *s1, char const *cord)
 	i--;
 	while (i != 0)
 	{
-		while (j  != -1)
+		while (j != -1)
 		{
 			if (s1[i] == cord[j])
-				break;
+				break ;
 			j--;
 		}
 		if (j == -1)
-			break;
+			break ;
 		i--;
 		j = a;
 	}
@@ -65,12 +66,13 @@ static int rcordi(char const *s1, char const *cord)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int begin;
-	int end;
-	char *str;
+	int		begin;
+	int		end;
+	char	*str;
+
 	if (!s1 || !set)
-		return NULL;
-	begin = cordi(s1,set);
+		return (NULL);
+	begin = cordi(s1, set);
 	end = rcordi(s1, set);
 	str = ft_substr(s1, begin, end - begin);
 	if (!str)
