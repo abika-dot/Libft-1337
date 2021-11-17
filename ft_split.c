@@ -6,7 +6,7 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 03:06:00 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/17 03:07:20 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/17 04:09:32 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -51,7 +51,7 @@ static char **endl(char **spl ,const char *s, char c)
   a = 0;
   i = 0;
   j = 0;
-  while (s[i] != '\0')
+  while (s[i] != '\0' )
   {
     while (s[i] && s[i] == c)
     i++;
@@ -68,7 +68,7 @@ static char **endl(char **spl ,const char *s, char c)
    ft_strlcpy(spl[a] ,s + i, j + 1);
     i = i +j;
   j = 0;
-   a++;
+  a++;
    }
    spl[a] = NULL;
 return (spl);
@@ -83,6 +83,8 @@ char    **ft_split(char const *s, char c)
  char **spl;
 
  spl = malloc(a * sizeof(char *));
+ if (!spl)
+	 return NULL;
  spl = endl(spl,s,c);
 return (spl);
 }
