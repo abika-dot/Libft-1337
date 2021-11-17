@@ -6,7 +6,7 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:54:16 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/17 05:39:49 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/17 15:21:38 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -34,15 +34,13 @@ static	int	cordi(char const *s1, char const *cord)
 	return (i);
 }
 
-static	int	rcordi(char const *s1, char const *cord)
+static	int	rcordi(char const *s1, char const *cord, int i)
 {
-	int	i;
 	int	j;
 	int	a;
 	int	ch;
 
 	j = ft_strlen(cord) - 1 ;
-	i = ft_strlen(s1);
 	a = j;
 	ch = i;
 	i--;
@@ -66,14 +64,16 @@ static	int	rcordi(char const *s1, char const *cord)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	int		i;
 	int		begin;
 	int		end;
 	char	*str;
 
 	if (!s1 || !set)
 		return (NULL);
+	i = ft_strlen(s1);
 	begin = cordi(s1, set);
-	end = rcordi(s1, set);
+	end = rcordi(s1, set, i);
 	str = ft_substr(s1, begin, end - begin);
 	if (!str)
 		return (NULL);
