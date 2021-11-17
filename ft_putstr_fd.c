@@ -6,17 +6,16 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 19:26:43 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/16 19:10:46 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/11 21:51:53 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
-	if (!s)
+	if (!s )
 		return ;
 	while (s[i])
 	{

@@ -6,11 +6,10 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 20:45:58 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/16 19:10:05 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/09 13:17:51 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
 void	ft_putnbr_fd(int nb, int fd)
 {
 	long	a;

@@ -6,15 +6,33 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:39:12 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/16 19:21:44 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/12 00:36:02 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
-static	char	*nbr(char *s, long nbr, int i, int sign)
+static char *zerorule()
 {
-	int		a;
-	int		b;
+	int i;
+	char *s;
+	
+	s = malloc(2 * sizeof(char));	
+	if (!s)
+	{
+		return NULL;
+	}
+	if (!s)
+	{
+		return NULL;
+	}	
+	i = 0;
+	s[i] = '0';
+	s[i+1] = 0;
+	return (s);
+}
+static char	*nbr(char *s, long nbr, int i, int sign)
+{
+	int	a;
+	int	b;
 	long	c;
 
 	a = i + 1;
@@ -52,6 +70,7 @@ char	*ft_itoa(int n)
 		c = c / 10;
 		i++;
 	}
+	
 	if (n < 0)
 	{
 		i++;

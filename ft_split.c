@@ -5,126 +5,84 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 18:29:35 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/16 19:08:42 by ozahir           ###   ########.fr       */
+/*   Created: 2021/11/17 03:06:00 by ozahir            #+#    #+#             */
+/*   Updated: 2021/11/17 03:07:20 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
-static	void	freed(char **spl, int a)
+static void freed(char **spl)
 {
-	while (a >= 0)
-	{
-		free(spl[a]);
-		a--;
-	}
-	free(spl);
-	spl = NULL;
+  int i = 0;
+    while (spl[i])
+    {
+        free(spl[i]);
+        i++;
+    }
+    free(spl);
+    spl = NULL;
 }
 
-static	int	rows(const char *s, char c)
+static int rows(const  char *s, char c)
 {
-	int	i;
-	int	j;
+    int i;
+    int j;
 
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] && s[i] == c)
-			i++;
-		if (s[i] && s[i] != c)
-			j++;
-		while (s[i] && s[i] != c)
-			i++;
-	}
-	if (s[i - 1] == c && j != 0)
-		j++;
-	return (j);
+    i = 0;
+    j = 0;
+    while (s[i])
+    {
+        while (s[i] && s[i] == c)
+            i++;
+
+        if (s[i] && s[i] != c)
+            j++;
+        while (s[i] &&s[i] != c)
+            i++;
+    }
+  j++;
+    return (j) ;
 }
-
-static	char	**aloca(char **spl, const char *s, char c)
+static char **endl(char **spl ,const char *s, char c)
 {
-	int	i;
-	int	j;
-	int	a;
+  int i;
+  int j;
+  int a;
 
-	i = 0;
-	j = 0;
-	a = 0;
-	while (s[i])
-	{
-		while (s[i] && s[i] == c)
-			i++;
-		while (s[i] && s[i] != c)
-		{
-			i++;
-			j++;
-		}
-		spl[a] = malloc(j * sizeof(char) + 1);
-		if (!spl[a])
-		{
-			freed(spl, a);
-			return (NULL);
-		}
-		a++;
-		j = 0;
-	}
-	return (spl);
+  a = 0;
+  i = 0;
+  j = 0;
+  while (s[i] != '\0')
+  {
+    while (s[i] && s[i] == c)
+    i++;
+    if (s[i] == '\0')
+    break ;
+    while(s[i + j] && s[j + i ] !=  c)
+    j++;
+    spl[a] = malloc(j * sizeof(char) + 1);
+    if (!spl[a])
+    {
+      freed(spl);
+    return NULL;
+    }
+   ft_strlcpy(spl[a] ,s + i, j + 1);
+    i = i +j;
+  j = 0;
+   a++;
+   }
+   spl[a] = NULL;
+return (spl);
 }
-
-static	char	**fill(char **spl, const char *s, char c)
+char    **ft_split(char const *s, char c)
 {
-	int	i;
-	int	j;
-	int	a;
+  if (!s)
+  return NULL;
+ int a = rows(s, c);
+  if (a == 0)
+  return NULL;
+ char **spl;
 
-	a = 0;
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] && s[i] == c)
-			i++;
-		while (s[i] && s[i] != c)
-		{
-			i++;
-			j++;
-		}
-		ft_strlcpy(spl[a], s + (i - j), j + 1);
-		a++;
-		j = 0;
-	}
-	if (s[i - 1] == c && a != 0)
-		a--;
-	spl[a] = 0;
-	return (spl);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		i;
-	int		j;
-	int		a;
-	char	**spl;
-
-	i = 0;
-	j = 0;
-	if (!s)
-		return (NULL);
-	a = rows(s, c);
-	if (a == 0)
-	{
-		spl = malloc(sizeof(char *));
-		spl[0] = NULL;
-		return (spl);
-	}
-	spl = malloc(a * sizeof(char *));
-	if (spl == NULL)
-		return (NULL);
-	spl = aloca(spl, s, c);
-	if (!spl)
-		return (NULL);
-	spl = fill(spl, s, c);
-	return (spl);
+ spl = malloc(a * sizeof(char *));
+ spl = endl(spl,s,c);
+return (spl);
 }

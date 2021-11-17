@@ -6,22 +6,26 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 23:39:21 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/16 19:15:36 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/11 00:12:23 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
-int	ft_lstsize(t_list *lst)
+typedef struct s_list
 {
-	int		count;
+void *content;
+struct s_list *next;
+} t_list;
+int ft_lstsize(t_list *lst)
+{
+	int count;
 	t_list	*tmp;
 
 	tmp = lst;
 	count = 0;
-	while (tmp != NULL)
-	{
-		tmp = tmp->next;
-		count++;
-	}
-	return (count);
+   while (tmp != NULL)
+   {
+	   tmp = tmp->next;
+	   count++;
+   }	   
+   return count;
 }
