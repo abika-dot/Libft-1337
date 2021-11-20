@@ -6,7 +6,7 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:36:39 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/17 15:24:41 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/20 16:58:51 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);

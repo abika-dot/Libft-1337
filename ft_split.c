@@ -6,12 +6,12 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 03:06:00 by ozahir            #+#    #+#             */
-/*   Updated: 2021/11/17 04:44:26 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/11/20 16:38:21 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static	void	freed(char **spl)
+static	char	**freed(char **spl)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ static	void	freed(char **spl)
 		i++;
 	}
 	free(spl);
-	spl = NULL;
+	return (NULL);
 }
 
 static	int	rows(const char *s, char c)
@@ -64,7 +64,7 @@ static	char	**alocation(char **spl, const char *s, char c)
 			j++;
 		spl[a] = malloc(j * sizeof(char) + 1);
 		if (!spl[a])
-			return (NULL);
+			return (freed(spl));
 		i = i + j;
 		j = 0;
 		a++;
@@ -113,10 +113,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	spl = alocation(spl, s, c);
 	if (spl == NULL)
-	{
-		freed(spl);
 		return (NULL);
-	}
 	spl = endl(spl, s, c);
 	return (spl);
 }
