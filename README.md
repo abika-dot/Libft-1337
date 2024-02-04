@@ -11,7 +11,7 @@ make
 
 ## Usage
 
-add libft.a file when compiling
+add libft.a file at compilation.
 ## example
 
 ```bash
